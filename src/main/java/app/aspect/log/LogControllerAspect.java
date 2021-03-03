@@ -71,7 +71,7 @@ public class LogControllerAspect {
      * @param joinPoint
      * @param exception
      */
-    @AfterThrowing(pointcut = "within(@org.springframework.web.bind.annotation.RestController *)", throwing = "exception")
+    @AfterThrowing(pointcut = "controller()", throwing = "exception")
     public void logAfterThrowingAllMethods(JoinPoint joinPoint, Throwable exception) {
         log.error("Ошибка при выполнении HTTP запроса : {} {} ошибка : {}", request.getMethod(), request.getRequestURL(), exception.getMessage());
     }
