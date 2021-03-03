@@ -14,7 +14,7 @@ public class AppExceptionHandler {
 
     @ExceptionHandler({DataNotFound.class})
     public final ResponseEntity handleNotFoundException(Exception ex, WebRequest request) {
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Данные не найдены");
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
     }
 
 }
