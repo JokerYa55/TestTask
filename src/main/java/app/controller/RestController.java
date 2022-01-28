@@ -20,10 +20,10 @@ public class RestController {
 
     @GetMapping(path = "/code/{country}")
     public List<PhoneCode> getByCountry(@PathVariable(name = "country") String countryName) {
-        List<PhoneCode> result = phoneCodeService.getPhoneCodeByName(countryName);
+        List<PhoneCode> result = phoneCodeService.getPhoneCodeByName(countryName.toLowerCase());
         if (result.isEmpty()) {
             throw new DataNotFound("Данные не найдены");
         }
-        return phoneCodeService.getPhoneCodeByName(countryName);
+        return result;
     }
 }
